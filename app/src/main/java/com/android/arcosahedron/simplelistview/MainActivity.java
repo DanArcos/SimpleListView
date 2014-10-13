@@ -2,10 +2,12 @@ package com.android.arcosahedron.simplelistview;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.ListIterator;
 
 /*This is an implementation of a very basic ListView
 * There will be no custom view implementations here
@@ -40,5 +42,17 @@ public class MainActivity extends ListActivity {
         //ListActivity.setListAdapter(adapter)
         setListAdapter(adapter);
 
+    }
+
+    //onListItemClick is the method that gets called when we click on an item
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        //getListAdapter() retrieves the list adapter so we can retrieve the item we want
+        //getItem(position) gives us the item that we want.
+        //Notice: this must be cast to a (String)
+        String item = (String)getListAdapter().getItem(position);
+
+        //Implement a toast indicating that we have clicked on an item!
+        Toast.makeText(this,"You have tapped "+item,Toast.LENGTH_SHORT).show();
     }
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.ListIterator;
 
 /*This is an implementation of a very basic ListView
 * There will be no custom view implementations here
@@ -15,9 +16,10 @@ public class MainActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main); //Notice we do not even use the main xml file in this implementation
+        //setContentView(R.layout.activity_main); //Notice the main xml file is not used in this implementation
 
-        String[] companies = new String[]{"Capcom", "SEGA", "Nintendo", "SCEA", "Square Enix", "Mojang","Bungie"};
+        //Add in data here
+        String[] companies = new String[]{"Capcom", "SEGA", "Nintendo", "SCEA", "Square Enix", "Mojang", "Bungie", "Valve"};
 
         /*
         * Add all data from "companies" array into an array list
@@ -33,6 +35,9 @@ public class MainActivity extends ListActivity {
         //ArrayAdapter<Data Type>(Context, layoutView, data set)
         //Context = this, layoutView = a default view created by the android OS, data set = list
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list);
+
+        //Now that the adapter is created, set it.
+        //ListActivity.setListAdapter(adapter)
         setListAdapter(adapter);
 
     }

@@ -42,7 +42,10 @@ public class MainActivity extends ListActivity {
         //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_main, R.id.label, list);
 
         //OR WE CAN USE OUR CUSTOM ADAPTER
-        MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, companies);
+        //MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, companies);
+
+        //OR WE CAN USE OUR PerformanceArrayAdapter
+        MyPerformanceArrayAdapter adapter = new MyPerformanceArrayAdapter(this,companies);
 
         //Now that the adapter is created, set it.
         //The full function is -> ListActivity.setListAdapter(adapter)

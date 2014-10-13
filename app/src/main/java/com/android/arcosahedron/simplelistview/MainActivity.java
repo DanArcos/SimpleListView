@@ -10,7 +10,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 /*This is an implementation of a very basic ListView
-* There will be no custom view implementations here
 * We must extend MainActivity to ListActivity in order to gain access to functions list setListAdapter()
 * */
 public class MainActivity extends ListActivity {
@@ -36,10 +35,17 @@ public class MainActivity extends ListActivity {
         //Create the list adapter that will convert our data set into a list view
         //ArrayAdapter<Data Type>(Context, layoutView, data set)
         //Context = this, layoutView = a default view created by the android OS, data set = list
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list);
+
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, list); UNCOMMENT THIS FOR SIMPLE LIST USE
+
+        /*OR WE CAN USE A CUSTOM VIEW...The third parameter is the ID of the TextView from activity_main that will be populated with the data */
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.activity_main, R.id.label, list);
+
+        //OR WE CAN USE OUR CUSTOM ADAPTER
+        MySimpleArrayAdapter adapter = new MySimpleArrayAdapter(this, companies);
 
         //Now that the adapter is created, set it.
-        //ListActivity.setListAdapter(adapter)
+        //The full function is -> ListActivity.setListAdapter(adapter)
         setListAdapter(adapter);
 
     }
